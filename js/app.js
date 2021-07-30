@@ -16,7 +16,7 @@ particlesJS('particles-js',
   {
     "particles": {
       "number": {
-        "value": 40,
+        "value": 20,
         "density": {
           "enable": true,
           "value_area": 800
@@ -36,8 +36,8 @@ particlesJS('particles-js',
         },
         "image": {
           "src": "../img/banana.png",
-          "width": 200,
-          "height": 200
+          "width": 1000,
+          "height": 1000
         }
       },
       "opacity": {
@@ -51,31 +51,31 @@ particlesJS('particles-js',
         }
       },
       "size": {
-        "value": 5,
+        "value": 30,
         "random": true,
         "anim": {
           "enable": false,
           "speed": 40,
-          "size_min": 0.1,
+          "size_min": 0.05,
           "sync": false
         }
       },
       "line_linked": {
-        "enable": true,
+        "enable": false,
         "distance": 150,
         "color": "#fcec03",
         "opacity": 0.4,
-        "width": 1
+        "width": 2
       },
       "move": {
         "enable": true,
-        "speed": 6,
+        "speed": 3,
         "direction": "none",
-        "random": false,
+        "random": true,
         "straight": false,
         "out_mode": "out",
         "attract": {
-          "enable": false,
+          "enable": true,
           "rotateX": 600,
           "rotateY": 1200
         }
@@ -98,7 +98,7 @@ particlesJS('particles-js',
         "grab": {
           "distance": 400,
           "line_linked": {
-            "opacity": 1
+            "opacity": 0
           }
         },
         "bubble": {
@@ -109,10 +109,10 @@ particlesJS('particles-js',
           "speed": 3
         },
         "repulse": {
-          "distance": 200
+          "distance": 600
         },
         "push": {
-          "particles_nb": 4
+          "particles_nb": 5
         },
         "remove": {
           "particles_nb": 2
