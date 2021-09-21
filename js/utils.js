@@ -1,6 +1,5 @@
 function claim() {
           
-    var xs =  hcaptcha.getResponse();
     (async () => {
       // hcaptcha check
 
@@ -17,7 +16,7 @@ function claim() {
     console.log(window.bananocoinBananojs.getBananoAccountValidationInfo(address));
     (async () => {
      document.getElementById("claimbtn").disabled = true;
-     var request  = await fetch('https://faucet.imalfect.xyz/redeem?addr=' + address + '&' + 'ip=' + "djdjj" + "&key=" + xs).then(response => response.json())
+     var request  = await fetch('https://192.168.31.191/redeem?addr=' + address + '&' + 'ip=' + "djdjj" + "&key=" + id + "&answer=" + selected).then(response => response.json())
      var code = request.code;
      var poolname = request.poolname;
      console.log(code);
@@ -28,7 +27,7 @@ function claim() {
      document.getElementById("claimbtn").disabled = false;
      document.getElementById("claimbtn").innerHTML
      = '<div class="subtextblack">Your IP is considered as malcious, are you using a VPN?</div>';
-     hcaptcha.reset();
+     captcha()
      getBal()
 
 
@@ -43,7 +42,7 @@ function claim() {
      console.log(poolname);
      window.location.replace(`https://faucet.imalfect.xyz/pool/${poolname}`);
      getBal()
-     hcaptcha.reset();
+     captcha()
 
 
    } else if (code === "8") {
@@ -57,7 +56,7 @@ function claim() {
      window.location.replace(`https://faucet.imalfect.xyz/pool/${poolname}`);
           getBal()
           
-     hcaptcha.reset();
+          captcha()
      console.log(poolname);
 
 
@@ -66,15 +65,25 @@ function claim() {
      document.getElementById("claimbtn").disabled = false;
      document.getElementById("claimbtn").innerHTML
      = '<div class="subtextblack">You already claimed your BANANO today.</div>';
-     hcaptcha.reset();
+     captcha()
      getBal()
 
 
    } else if (code === "10") {
     document.getElementById("claimbtn").disabled = false;
     document.getElementById("claimbtn").innerHTML
-    = '<div class="subtextblack">Ugh, seems like you did not complete the captcha (or mal just broke the code)</div>';
-    hcaptcha.reset();
+    = '<div class="subtextblack">oops! Try completing the captcha again</div>';
+    captcha()
+   }  else if (code === "20") {
+    document.getElementById("claimbtn").disabled = false;
+    document.getElementById("claimbtn").innerHTML
+    = '<div class="subtextblack">Internal Error 420 occured.</div>';
+    captcha()
+   }   else if (code === "49") {
+    document.getElementById("claimbtn").disabled = false;
+    document.getElementById("claimbtn").innerHTML
+    = '<div class="subtextblack">Internal Error 69 occured.</div>';
+    captcha()
    }
     })();
 

@@ -84,15 +84,15 @@
         var lastSegment = parts.pop() || parts.pop();
         var pooldatajson = await fetch(`https://faucet.imalfect.xyz/poolinfo?name=${lastSegment}`).then(res => res.json())
         document.getElementById('poolname').innerHTML
-        = lastSegment.replace(/%20/g, ' ');
+        = unescape(lastSegment.replace(/%20/g, ' '));
         document.getElementById('description').innerHTML
-        = await fetch(pooldatajson.desc).then(res => res.text());
+        = unescape(pooldatajson.desc)
         document.getElementById('reward').innerHTML
-        = `Reward: ${pooldatajson.reward} BAN`
+        = `Reward: ${unescape(pooldatajson.reward)} BAN`
         document.getElementById('balance').innerHTML
         = `Balance: ${pooldatajson.balance} BAN`
         document.getElementById('smalltext').innerHTML
-        = `<font size=20%>${pooldatajson.smalltext}</font>`
+        = `<font size=20%>${unescape(pooldatajson.smalltext)}</font>`
         document.getElementById('alterimg').src
         = pooldatajson.img
 

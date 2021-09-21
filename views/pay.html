@@ -1,13 +1,11 @@
 
 <!DOCTYPE html>
 
-<html lang="en" id="home">
-<head><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>iMalFect's Banano Faucet</title>
-    <script src="../js/bananocoin-bananojs.js"></script>
-    <script src="https://hcaptcha.com/1/api.js?hl=en" async defer></script>
-    
+    <title>Donate</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<link rel="stylesheet" href="../css/bootstrap.rtl.min.css">
 	<link rel="stylesheet" href="../css/animate.min.css">
 	<link rel="stylesheet" href="../css/bootstrap-grid.min.css">
@@ -18,10 +16,6 @@
 	<link rel="stylesheet" href="../css/bootstrap-utilities.rtl.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="../css/style.css">
-	
-<script src="../js/bananocoin-bananojs.js"></script>
-<script type = "module">
-</script>
 	<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
@@ -29,12 +23,11 @@
 </head>
 
 
-
-<body onload=captcha()>
+<body onload=getDepo()>
 
 	
-	<nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="z-index:10;position:relative;">
-  <a class="navbar-brand" href="./index.html" style="margin-top: -12px">iMalFect's faucet</a>
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="z-index:10;position:relative;">
+  <a class="navbar-brand" href="index.html" style="margin-top: -12px">iMalFect's faucet</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -49,8 +42,8 @@
 	  
 	  
 	  
-	  
-	  
+	  <!--https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=_____________&choe=UTF-8-->
+
 	  <ul class="nav navbar-nav ml-auto" style="padding:15px 0 0 0;margin:0">
 		  <li style="margin:0"><p style="margin:0;line-height:34px;"><span style="margin-top:5px;padding-right:5px">Dark Mode</span> <label class="form-inline switch">
   <input type="checkbox" class="btn-toggle" id="checkbox">
@@ -58,51 +51,44 @@
 		  </label></p></li></ul>
   </div>
 </nav>
-	<div  id="particles-js"></div>
-<div class="body-wrapper animate__animated animate__fadeIn">	
 	
-	
-    
-    
-<div class="col-md-12">
-    <h1>iMalFect's Banano Faucet</h1>
-	
-	</div>
-	
-	
-<div class="col-md-12">
-    <p>Enter your BANANO address and solve monkey-only captcha to receive some BANANO.</p>
+<div class="body-wrapper">	
+	<div id="paydiv">
+    <center>
+   <P>Send <mark>100 BANANO</mark> to this address.</P>
+   <p id="addy">address help</p>
+   <r></r>
+   <button class="button" id="copy" onclick="verify()">that's useless one</button>
+   <br>
+   <img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=_____________&choe=UTF-8" id="img">
+    </center>
+  </div>
 
-    
-    
-    <input type="text" name="search" id="address" placeholder="ban_">
-<br><br>
-<button onclick="select(1)" id="btn1" style="border: none;"><img src="" id="img1"></button>
-<button onclick="select(2)" id="btn2" style="border: none;"><img src="" id="img2"></button>
-<button onclick="select(3)" id="btn3" style="border: none;"><img src="" id="img3"></button>
-<button onclick="select(4)" id="btn4" style="border: none;"><img src="" id="img4"></button>
-<button onclick="select(5)" id="btn5" style="border: none;"><img src="" id="img5"></button>
-<button onclick="select(6)" id="btn6" style="border: none;"><img src="" id="img6"></button>
+  <div id="infodiv" style="visibility:hidden;">
+    <center>
+      <h1>Completed!</h1>
+      <br>
+    <h2>Note these details as they won't be shown to you again.</h2>
     <br>
-    <button class="button button1" onclick=claim() id="claimbtn" style="margin-top:10px;">
-		<div class="subtextblack">Get Banano</div></button>
-    <div class="subtext" id="sponsor" style="visibility:hidden;">Claim Sponsored by: nil Sponsor </div>
-<br><br><br><br>
-	</div>
-	<br><br>
-	<div class="col-md-12">
-		<h6>Updates:</h6>
-			<ul>
-				<li>
-          Enjoy the new design! Made by: <a href="https://reddit.com/u/tylerjordan1994" target="_blank">TylerJordan1994</a> <br>
-					We upgraded to 4 times faster hardware, enjoy! Read the post on  <a href="https://www.reddit.com/r/banano/comments/oncrf8/new_faucet_update_make_your_own_minifaucet/" target="_blank">Reddit</a>.
-          
-				</li>
-				
-		</ul>
-	</div>
+    <h3 id="poolseed">Pool Wallet Seed: (pending)</h3>
+    <br>
+    <h3 id="pooladdy">Pool Address: sss892wr7e36gt8</h3>
+    <br>
+    <h3 id="poolsecret">Pool Secret: sss892wr7e36gt8</h3>
+  </center>
+  </div>
 
-	
+
+  
+  <div id="errordiv" style="display: none;">
+    <center>
+      <h1>Error!</h1>
+      <br>
+    <h2>An unexpected error happened. Contact imalfect#7015 or u/imalfect for help.</h2>
+  </center>
+  </div>
+<div class="col-md-12 animate__animated animate__fadeIn">
+
 <div class="box">
   <div class="head"></div>
   <div class="head-copy">
@@ -133,19 +119,31 @@
     </div>
   </div>
 </div>
-</div>
-
-	
-	
+	</div></div>
 	</body>
+	<script>
+    // ignore it okay
+    function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
 
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+ document.getElementById("copy").innerHTML = "Successfully Copied!";
+}</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src="../js/bananocoin-bananojs.js"></script>
 	<script src="../js/bootstrap.bundle.min.js"></script>
 	<script src="../js/bootstrap.esm.min.js"></script>
-<script src="../js/particles.js"></script>
+	<script src="../js/particles.js"></script>
 	<script src="../js/app.js"></script>
 	<script src="../js/utils.js"></script>
-  <script src="../js/captcha.js"></script>
+    <script src="../js/makepool.js"></script>
 </html>
